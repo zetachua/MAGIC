@@ -6,7 +6,9 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
   globalIgnores(['dist']),
+  
   {
+    base: '/MAGIC/',  // ✅ important for GitHub Pages subpath
     files: ['**/*.{js,jsx}'],
     extends: [
       js.configs.recommended,
