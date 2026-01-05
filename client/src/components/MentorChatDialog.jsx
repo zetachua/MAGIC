@@ -8,11 +8,12 @@ const MentorChatDialog = () => {
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
   const [userId] = useState(uuidv4()); // unique session ID
+  const API_BASE = 'https://magic-cindy.fly.dev';
 
   const queryMentor = async () => {
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:5050/api/mentor-chat', {
+      const res = await axios.post('https://magic-cindy.fly.dev/api/mentor-chat', {
         userId,
         userInput: prompt,
       });

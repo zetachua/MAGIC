@@ -7,12 +7,13 @@ import { initializeRAG, queryRAG } from './rag.js';
 
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 
 const allowedOrigins = [
   'http://localhost:5173',
   'https://zetachua.github.io',
   'https://www.zetachua.github.io',
+  'https://zetachua.github.io/MAGIC',
 ];
 app.use(cors({
   origin: allowedOrigins,
