@@ -1,4 +1,4 @@
-@ -1,298 +0,0 @@
+
 # MAGIC - Career Mentor Chat Application
 
 A full-stack application featuring a React frontend deployed on GitHub Pages and a Node.js/Express backend deployed on Fly.io.
