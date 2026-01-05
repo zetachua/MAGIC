@@ -86,7 +86,7 @@ export async function queryRAG(question, chatHistory = []) {
         ...validChatHistory,
         { role: 'user', content: question },
       ],
-      model: 'Deepseek-R1-Distill-Llama-70b',
+      model: 'openai/gpt-oss-120b',
     });
 
     return completion.choices[0].message.content;
