@@ -37,13 +37,13 @@ const MentorChatDialog = () => {
         style={{ padding: '10px', width: '70%', marginRight: '10px' }}
       />
       <Button sx={{backgroundColor:'white',color:'black',fontFamily:'MadeTommyBold',fontSize:'15px!important'}} onClick={queryMentor} disabled={loading}>
-        {loading ? 'Querying...' : 'Send'}
+        {loading ? 'Querying... ' : 'Send'}
       </Button>
 
       {response && (
         <div style={{ marginTop: '20px' }}>
-          <h3>Cindy's Response:</h3>
-          <Typography variant='MadeTommy' style={{ whiteSpace: 'pre-wrap' }}>{response}</Typography>
+          <Typography variant="body1" fontFamily='MadeTommyBold' sx={{padding:'1rem'}}>Cindy's Response:</Typography>
+          <Typography variant="body2" fontFamily='MadeTommy' style={{ whiteSpace: 'pre-wrap' }}>{response}</Typography>
         </div>
       )}
     </div>
