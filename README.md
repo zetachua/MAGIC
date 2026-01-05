@@ -297,3 +297,12 @@ git commit -m "Update frontend: $(date)"
 git push origin gh-pages
 git checkout main
 echo "✅ Frontend deployed!"
+
+
+cd dist
+git init
+git add .
+git commit -m "Deploy Vite build"
+git branch -M gh-pages
+git remote add origin https://github.com/zetachua/MAGIC.git
+git push -f origin gh-pages
