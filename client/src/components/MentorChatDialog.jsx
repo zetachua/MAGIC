@@ -31,13 +31,13 @@ const MentorChatDialog = () => {
       <Input
         type="text"
         value={prompt}
-        sx={{fontFamily:'MadeTommy',color:'white'}}
+        sx={{fontFamily:'MadeTommy',color:'white',fontSize:'15px!important'}}
         onChange={(e) => setPrompt(e.target.value)}
         placeholder="Ask a question about Cindy's Career MAGIC Book!"
         style={{ padding: '10px', width: '70%', marginRight: '10px' }}
       />
-      <Button sx={{backgroundColor:'white',color:'black',fontFamily:'MadeTommyBold'}}onClick={queryMentor} disabled={loading}>
-        {loading ? 'Querying...' : 'Ask Cindy'}
+      <Button sx={{backgroundColor:'white',color:'black',fontFamily:'MadeTommyBold',fontSize:'15px!important'}} onClick={queryMentor} disabled={loading}>
+        {loading ? 'Querying...' : 'Send'}
       </Button>
 
       {response && (
