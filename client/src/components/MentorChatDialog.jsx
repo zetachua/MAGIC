@@ -26,7 +26,7 @@ const MentorChatDialog = () => {
     setLoading(false);
   };
 
-  return (
+  return ( 
     <div style={{ padding: '1rem', width:'600px', margin: '0 auto' }}>
       <Input
         type="text"
