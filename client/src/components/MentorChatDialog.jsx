@@ -13,7 +13,7 @@ const MentorChatDialog = () => {
   const queryMentor = async () => {
     setLoading(true);
     try {
-      const res = await axios.post('https://magic-cindy.fly.dev/api/mentor-chat', {
+      const res = await axios.post(`${API_BASE}/api/mentor-chat`, {
         userId,
         userInput: prompt,
       });
