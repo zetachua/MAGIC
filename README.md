@@ -289,7 +289,7 @@ git checkout main
 cd client && npm run build && cd ..
 git checkout gh-pages
 rm -rf assets/ index.html vite.svg
-cp -r client/dist/* .
+cp -r client/dist/* .  
 touch .nojekyll
 git add index.html assets/ vite.svg .nojekyll
 git commit -m "Update frontend: $(date)"
