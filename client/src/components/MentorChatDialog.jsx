@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
+import { Button, Input,Typography } from '@mui/material';
 
 const MentorChatDialog = () => {
   const [prompt, setPrompt] = useState('');
@@ -27,21 +28,22 @@ const MentorChatDialog = () => {
 
   return (
     <div style={{ padding: '1rem', width:'600px', margin: '0 auto' }}>
-      <input
+      <Input
         type="text"
         value={prompt}
+        sx={{fontFamily:'MadeTommy',color:'white'}}
         onChange={(e) => setPrompt(e.target.value)}
         placeholder="Ask a question about Cindy's Career MAGIC Book!"
         style={{ padding: '10px', width: '70%', marginRight: '10px' }}
       />
-      <button onClick={queryMentor} disabled={loading}>
+      <Button sx={{backgroundColor:'white',color:'black',fontFamily:'MadeTommyBold'}}onClick={queryMentor} disabled={loading}>
         {loading ? 'Querying...' : 'Ask Cindy'}
-      </button>
+      </Button>
 
       {response && (
         <div style={{ marginTop: '20px' }}>
           <h3>Cindy's Response:</h3>
-          <pre style={{ whiteSpace: 'pre-wrap' }}>{response}</pre>
+          <Typography variant='MadeTommy' style={{ whiteSpace: 'pre-wrap' }}>{response}</Typography>
         </div>
       )}
     </div>
