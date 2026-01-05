@@ -4,7 +4,7 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
 const MentorChatDialog = () => {
-  const [prompt, setPrompt] = useState('Ask a question to Cindy Tan!');
+  const [prompt, setPrompt] = useState('');
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
   const [userId] = useState(uuidv4()); // unique session ID
@@ -31,7 +31,7 @@ const MentorChatDialog = () => {
         type="text"
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
-        placeholder="Ask a question"
+        placeholder="Ask a question about Cindy's Career MAGIC Book!"
         style={{ padding: '10px', width: '70%', marginRight: '10px' }}
       />
       <button onClick={queryMentor} disabled={loading}>
