@@ -7,7 +7,7 @@ import { Button, Input,Typography } from '@mui/material';
 const MentorChatDialog = () => {
   const [prompt, setPrompt] = useState('');
   const [response, setResponse] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false); 
   const [userId] = useState(uuidv4()); // unique session ID
   const API_BASE = 'https://magic-cindy.fly.dev';
 
