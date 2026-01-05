@@ -9,9 +9,13 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT;
 
-
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://zetachua.github.io',
+  'https://www.zetachua.github.io',
+];
 app.use(cors({
-  origin: 'http://localhost:5173', // Vite frontend
+  origin: allowedOrigins,
   methods: ['GET','POST','OPTIONS'],
   allowedHeaders: ['Content-Type']
 }));// Ensure preflight OPTIONS requests are handled
