@@ -283,33 +283,15 @@ If you encounter issues:
 **Last Updated:** January 2025
 
 
-
-// update github pages fully
+#!/bin/bash
 cd /Users/zetachua/Documents/GitHub/MAGIC
-
-# Switch to gh-pages branch
-git checkout gh-pages
-
-# Remove old files
-rm -rf assets/* index.html vite.svg
-
-# Copy latest build files
-cp -r client/dist/* .
-
-# Check what we have
-ls -la assets/
-
-# Stage all changes
-git add -A
-
-# Remove old JS file if it exists
-git rm assets/index-MJ7TUPZn.js 2>/dev/null || true
-
-# Commit the update
-git commit -m "Update frontend to latest version"
-
-# Push to GitHub
-git push origin gh-pages
-
-# Switch back to main
 git checkout main
+cd client && npm run build && cd ..
+git checkout gh-pages
+cp -r client/dist/* .
+touch .nojekyll
+git add index.html assets/ vite.svg .nojekyll
+git commit -m "Update frontend: $(date)"
+git push origin gh-pages
+git checkout main
+echo "✅ Frontend deployed!"
