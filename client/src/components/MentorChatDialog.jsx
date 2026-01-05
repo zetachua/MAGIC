@@ -4,7 +4,7 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
 const MentorChatDialog = () => {
-  const [prompt, setPrompt] = useState('What does Cindy Tan say about leadership?');
+  const [prompt, setPrompt] = useState('Ask a question to Cindy Tan!');
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
   const [userId] = useState(uuidv4()); // unique session ID
