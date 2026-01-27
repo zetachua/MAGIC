@@ -37,7 +37,8 @@ const MentorChatDialog = () => {
       flexDirection: 'column',
       gap: '1rem',
       minHeight: '0', // Important for iframe compatibility
-      height: '100%'
+      height: '100%',
+      color: 'inherit' // Inherit text color from body
     }}>
       <div style={{
         display: 'flex',
@@ -51,13 +52,42 @@ const MentorChatDialog = () => {
           value={prompt}
           sx={{
             fontFamily: 'MadeTommy',
-            color: 'white',
             fontSize: 'clamp(14px, 2vw, 15px) !important',
             width: '100%',
             boxSizing: 'border-box',
+            backgroundColor: 'rgba(0, 0, 0, 0.05)',
+            padding: '0.5rem',
+            borderRadius: '4px',
+            border: '1px solid rgba(0, 0, 0, 0.1)',
             '& .MuiInput-input': {
               padding: 'clamp(8px, 1.5vw, 10px)',
-            }
+              color: 'inherit',
+            },
+            '&::before': {
+              borderBottom: 'none !important',
+            },
+            '&::after': {
+              borderBottom: 'none !important',
+            },
+            '&:hover': {
+              backgroundColor: 'rgba(0, 0, 0, 0.08)',
+            },
+            '&:focus-within': {
+              backgroundColor: 'rgba(0, 0, 0, 0.1)',
+              borderColor: 'rgba(0, 0, 0, 0.2)',
+            },
+            '@media (prefers-color-scheme: dark)': {
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              borderColor: 'rgba(255, 255, 255, 0.2)',
+              color: 'rgba(255, 255, 255, 0.87)',
+              '&:hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.15)',
+              },
+              '&:focus-within': {
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                borderColor: 'rgba(255, 255, 255, 0.3)',
+              },
+            },
           }}
           onChange={(e) => setPrompt(e.target.value)}
           placeholder="Ask a question about Cindy's Career MAGIC Book!"
@@ -104,7 +134,8 @@ const MentorChatDialog = () => {
             fontFamily='MadeTommyBold' 
             sx={{
               padding: 'clamp(0.5rem, 2vw, 1rem)',
-              fontSize: 'clamp(16px, 2.5vw, 18px)'
+              fontSize: 'clamp(16px, 2.5vw, 18px)',
+              color: 'inherit',
             }}
           >
             Cindy's Response:
@@ -117,7 +148,8 @@ const MentorChatDialog = () => {
               wordBreak: 'break-word',
               fontSize: 'clamp(14px, 2vw, 16px)',
               padding: '0 clamp(0.5rem, 2vw, 1rem)',
-              lineHeight: '1.6'
+              lineHeight: '1.6',
+              color: 'inherit',
             }}
           >
             {response}

@@ -284,7 +284,7 @@ If you encounter issues:
 **Last Updated:** January 2025
 
 
-#!/bin/bash
+<!-- #!/bin/bash
 cd /Users/zetachua/Documents/GitHub/MAGIC
 git checkout main
 cd client && npm run build && cd ..
@@ -296,13 +296,23 @@ git add index.html assets/ vite.svg .nojekyll
 git commit -m "Update frontend: $(date)"
 git push origin gh-pages
 git checkout main
-echo "✅ Frontend deployed!"
+echo "✅ Frontend deployed!" -->
 
 
-cd dist
-git init
-git add .
-git commit -m "Deploy Vite build"
-git branch -M gh-pages
-git remote add origin https://github.com/zetachua/MAGIC.git
-git push -f origin gh-pages
+cd /Users/zetachua/Documents/GitHub/MAGIC
+# Switch to gh-pages
+git checkout gh-pages
+# Clean old files
+rm -rf assets/ index.html vite.svg "MADE TOMMY"*.otf
+# Copy the fresh build from main branch
+git checkout main -- client/dist
+cp -r client/dist/* .
+rm -rf client  # Remove the client folder after copying
+# Ensure .nojekyll exists
+touch .nojekyll
+# Commit and push
+git add -A
+git commit -m "Deploy frontend: $(date)"
+git push origin gh-pages
+# Switch back to main
+git checkout main
