@@ -27,23 +27,99 @@ const MentorChatDialog = () => {
   };
 
   return ( 
-    <div style={{ padding: '1rem', width:'600px', margin: '0 auto' }}>
-      <Input
-        type="text"
-        value={prompt}
-        sx={{fontFamily:'MadeTommy',color:'white',fontSize:'15px!important'}}
-        onChange={(e) => setPrompt(e.target.value)}
-        placeholder="Ask a question about Cindy's Career MAGIC Book!"
-        style={{ padding: '10px', width: '70%', marginRight: '10px' }}
-      />
-      <Button sx={{backgroundColor:'white',color:'black',fontFamily:'MadeTommyBold',fontSize:'15px!important'}} onClick={queryMentor} disabled={loading}>
-        {loading ? 'Querying... ' : 'Send'}
-      </Button>
+    <div style={{ 
+      padding: 'clamp(0.5rem, 2vw, 1rem)', 
+      width: '100%',
+      maxWidth: '600px',
+      margin: '0 auto',
+      boxSizing: 'border-box',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '1rem',
+      minHeight: '0', // Important for iframe compatibility
+      height: '100%'
+    }}>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '0.75rem',
+        width: '100%'
+      }}>
+        <Input
+          type="text"
+          value={prompt}
+          sx={{
+            fontFamily: 'MadeTommy',
+            color: 'white',
+            fontSize: 'clamp(14px, 2vw, 15px) !important',
+            width: '100%',
+            boxSizing: 'border-box',
+            '& .MuiInput-input': {
+              padding: 'clamp(8px, 1.5vw, 10px)',
+            }
+          }}
+          onChange={(e) => setPrompt(e.target.value)}
+          placeholder="Ask a question about Cindy's Career MAGIC Book!"
+          onKeyPress={(e) => {
+            if (e.key === 'Enter' && !loading && prompt.trim()) {
+              queryMentor();
+            }
+          }}
+        />
+        <Button 
+          sx={{
+            backgroundColor: 'white',
+            color: 'black',
+            fontFamily: 'MadeTommyBold',
+            fontSize: 'clamp(14px, 2vw, 15px) !important',
+            padding: 'clamp(10px, 2vw, 12px)',
+            width: '100%',
+            '&:hover': {
+              backgroundColor: 'rgba(255, 255, 255, 0.9)'
+            },
+            '&:disabled': {
+              backgroundColor: 'rgba(255, 255, 255, 0.5)'
+            }
+          }} 
+          onClick={queryMentor} 
+          disabled={loading || !prompt.trim()}
+        >
+          {loading ? 'Querying...' : 'Send'}
+        </Button>
+      </div>
 
       {response && (
-        <div style={{ marginTop: '20px' }}>
-          <Typography variant="body1" fontFamily='MadeTommyBold' sx={{padding:'1rem'}}>Cindy's Response:</Typography>
-          <Typography variant="body2" fontFamily='MadeTommy' style={{ whiteSpace: 'pre-wrap' }}>{response}</Typography>
+        <div style={{ 
+          marginTop: 'clamp(1rem, 3vw, 1.5rem)',
+          width: '100%',
+          boxSizing: 'border-box',
+          overflow: 'auto',
+          maxHeight: 'calc(100vh - 200px)', // Prevents overflow in iframes
+          wordWrap: 'break-word'
+        }}>
+          <Typography 
+            variant="body1" 
+            fontFamily='MadeTommyBold' 
+            sx={{
+              padding: 'clamp(0.5rem, 2vw, 1rem)',
+              fontSize: 'clamp(16px, 2.5vw, 18px)'
+            }}
+          >
+            Cindy's Response:
+          </Typography>
+          <Typography 
+            variant="body2" 
+            fontFamily='MadeTommy' 
+            sx={{
+              whiteSpace: 'pre-wrap',
+              wordBreak: 'break-word',
+              fontSize: 'clamp(14px, 2vw, 16px)',
+              padding: '0 clamp(0.5rem, 2vw, 1rem)',
+              lineHeight: '1.6'
+            }}
+          >
+            {response}
+          </Typography>
         </div>
       )}
     </div>

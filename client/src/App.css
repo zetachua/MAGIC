@@ -1,8 +1,12 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: clamp(1rem, 3vw, 2rem);
   text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 0; /* Important for iframe compatibility */
+  height: 100%;
 }
 
 @font-face {

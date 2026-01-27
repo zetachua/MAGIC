@@ -86,7 +86,7 @@ export async function queryRAG(question, chatHistory = []) {
         ...validChatHistory,
         { role: 'user', content: question },
       ],
-      model: 'openai/gpt-oss-120b',
+      model: 'llama-3.1-8b-instant',
     });
 
     return completion.choices[0].message.content;

@@ -26,8 +26,22 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
+  min-width: 0; /* Allow shrinking below 320px for iframes */
   min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 h1 {
