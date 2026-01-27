@@ -43,7 +43,8 @@ const MentorChatDialog = () => {
         display: 'flex',
         flexDirection: 'column',
         gap: '0.75rem',
-        width: '100%'
+        width: '80%',
+        margin: 'auto'
       }}>
         <Input
           type="text"
@@ -74,6 +75,7 @@ const MentorChatDialog = () => {
             fontSize: 'clamp(14px, 2vw, 15px) !important',
             padding: 'clamp(10px, 2vw, 12px)',
             width: '100%',
+            height: '40px',
             '&:hover': {
               backgroundColor: 'rgba(255, 255, 255, 0.9)'
             },
